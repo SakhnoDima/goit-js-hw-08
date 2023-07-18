@@ -1,4 +1,6 @@
 import throttle from 'lodash.throttle';
+const STORAGE_KAY = ".feedback-form"
+const messageFromForm = {};
 
 const refs = {
 formEl : document.querySelector(".feedback-form"),
@@ -7,7 +9,7 @@ formEl : document.querySelector(".feedback-form"),
 refs.formEl.addEventListener("submit", onFormSubmit )
 refs.formEl.addEventListener("input",   throttle(onFormTextInput, 500));
 
-addMassegFromLocalStorage()
+addMessageFromLocalStorage()
 
 function onFormSubmit (event){
 event.preventDefault();
@@ -18,29 +20,23 @@ console.log(messageFromForm);
 event.currentTarget.reset();
 localStorage.removeItem("feedback-form-state");
 }
-
+ 
 function onFormTextInput (event){
-const {
-    elements: { email, message}
-  } = event.currentTarget;
-const messageFromForm = {
-    email : email.value,
-    message : message.value
-}
+messageFromForm[event.target.name] = event.target.value;
 
 const messageForSave = JSON.stringify(messageFromForm)
 localStorage.setItem("feedback-form-state", messageForSave)
 
-console.log(message.value);
 }
 
-function addMassegFromLocalStorage(){
-const messageFromForm = JSON.parse(localStorage.getItem("feedback-form-state"));
-
-if (messageFromForm) {
+function addMessageFromLocalStorage(){
+const messageFromFormNew = JSON.parse(localStorage.getItem("feedback-form-state"));
+console.log(messageFromFormNew);
+const {email, message} = messageFromFormNew;
+if (email && message) {
  
-const {email, message} = messageFromForm;
 
+console.log(email);
 refs.formEl.elements.email.value = email;
 refs.formEl.elements.message.value = message;
 }
