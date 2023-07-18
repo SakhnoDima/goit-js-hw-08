@@ -1,7 +1,7 @@
 import Player from '@vimeo/player';
 import throttle from 'lodash.throttle';
 
-console.log(throttle);
+
 const iframe = document.querySelector("#vimeo-player");
 
     const player = new Player(iframe);
@@ -11,6 +11,7 @@ const iframe = document.querySelector("#vimeo-player");
 
     }, 1)
     );
+ 
 
     player.setCurrentTime((localStorage.getItem("videoplayer-current-time")))
     .then(function(seconds) {
@@ -23,8 +24,7 @@ const iframe = document.querySelector("#vimeo-player");
     
             default:
                 // some other error occurred
-                break;
-        }
+                break; }
     });
 
 
