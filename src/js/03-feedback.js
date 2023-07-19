@@ -32,10 +32,12 @@ localStorage.setItem(STORAGE_KAY, messageForSave)
 function addMessageFromLocalStorage(){
 const messageFromFormNew = JSON.parse(localStorage.getItem(STORAGE_KAY));
 
-    console.log(messageFromFormNew);
+   
 
 const {email, message} = messageFromFormNew;
+
 if (email && message) {
+    
 refs.formEl.elements.email.value = email;
 refs.formEl.elements.message.value = message;
 }
