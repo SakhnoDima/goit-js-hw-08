@@ -9,7 +9,7 @@ formEl : document.querySelector(STORAGE_KAY),
 refs.formEl.addEventListener("submit", onFormSubmit )
 refs.formEl.addEventListener("input",   throttle(onFormTextInput, 500));
 
-// addMessageFromLocalStorage()
+addMessageFromLocalStorage()
 
 function onFormSubmit (event){
 event.preventDefault();
