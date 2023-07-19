@@ -31,12 +31,13 @@ localStorage.setItem("feedback-form-state", messageForSave)
 
 function addMessageFromLocalStorage(){
 const messageFromFormNew = JSON.parse(localStorage.getItem("feedback-form-state"));
-console.log(messageFromFormNew);
+
+    console.log(messageFromFormNew);
+
 const {email, message} = messageFromFormNew;
+
 if (email && message) {
  
-
-console.log(email);
 refs.formEl.elements.email.value = email;
 refs.formEl.elements.message.value = message;
 }
