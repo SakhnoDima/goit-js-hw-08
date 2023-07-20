@@ -34,8 +34,7 @@ console.log(userData);
 const {email, message} = userData;
 
 if (!email || !message) {
-
-return}
+    return}
 refs.formEl.elements.email.value = email;
 refs.formEl.elements.message.value = message;
 
