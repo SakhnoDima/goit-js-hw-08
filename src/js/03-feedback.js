@@ -1,7 +1,6 @@
 import throttle from 'lodash.throttle';
 
 const STORAGE_KAY = ".feedback-form"
-const messageFromForm = {};
 let userData = JSON.parse(localStorage.getItem(STORAGE_KAY))  || {};
 const refs = {
 formEl : document.querySelector(STORAGE_KAY),
@@ -23,9 +22,9 @@ localStorage.removeItem(STORAGE_KAY);
 }
 //  ?========================================================
 function onFormTextInput (event){
-messageFromForm[event.target.name] = event.target.value;
+userData[event.target.name] = event.target.value;
 
-const messageForSave = JSON.stringify(messageFromForm)
+const messageForSave = JSON.stringify(userData)
 localStorage.setItem(STORAGE_KAY, messageForSave)
 
 }
