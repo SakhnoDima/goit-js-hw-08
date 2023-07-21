@@ -34,8 +34,6 @@ function addMessageFromLocalStorage(){
 
 const {email, message} = userData;
 
-// if (!email || !message) {
-//     return}
 
 refs.formEl.elements.email.value = email || "";
 refs.formEl.elements.message.value = message || "";
