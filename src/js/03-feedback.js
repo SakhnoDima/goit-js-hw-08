@@ -30,9 +30,9 @@ localStorage.setItem(STORAGE_KAY, messageForSave)
 }
 // ?==========================================================
 function addMessageFromLocalStorage(){
-console.log(userData);
-const {email, message} = userData;
 
+const {email, message} = userData;
+console.log(232);
 if (!email || !message) {
     return}
 refs.formEl.elements.email.value = email;
