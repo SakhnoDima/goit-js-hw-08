@@ -19,6 +19,7 @@ event.preventDefault();
 console.log(userData);
 event.currentTarget.reset();
 localStorage.removeItem(STORAGE_KAY);
+userData = {};
 }
 //  ?========================================================
 function onFormTextInput (event){
@@ -33,9 +34,10 @@ function addMessageFromLocalStorage(){
 
 const {email, message} = userData;
 
-if (!email || !message) {
-    return}
-refs.formEl.elements.email.value = email;
-refs.formEl.elements.message.value = message;
+// if (!email || !message) {
+//     return}
+
+refs.formEl.elements.email.value = email || "";
+refs.formEl.elements.message.value = message || "";
 
 }
